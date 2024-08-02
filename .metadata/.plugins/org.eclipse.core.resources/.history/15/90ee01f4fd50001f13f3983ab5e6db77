@@ -1,0 +1,15 @@
+package br.com.projeto.repository;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import br.com.projeto.domain.DadosPessoais;
+
+public interface DadosPessoaisRepository extends JpaRepository<DadosPessoais, Integer>{
+	
+	public Optional<DadosPessoais> fingByCpf(String cpf);
+	public Optional<DadosPessoais> fingByEmail(String email);
+	
+
+}

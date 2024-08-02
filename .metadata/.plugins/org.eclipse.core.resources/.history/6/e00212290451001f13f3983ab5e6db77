@@ -1,0 +1,33 @@
+package br.com.projeto.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.com.projeto.domain.DadosPessoais;
+import br.com.projeto.repository.DadosPessoaisRepository;
+
+@RestController
+@RequestMapping("/dadospessoais")
+public class DadosPessoaisControler {
+
+	@Autowired
+	private DadosPessoaisRepository dpr;
+	
+	@PostMapping("/cadastrar")
+	public String cadastrar(@RequestBody DadosPessoais dp) {
+		dpr.save(dp);
+		return "Dados cadastrados";
+	}
+	
+	@GetMapping("/listar")
+	public List<DadosPessoais> listar() {
+		return dpr.findAll();
+	}
+	
+}

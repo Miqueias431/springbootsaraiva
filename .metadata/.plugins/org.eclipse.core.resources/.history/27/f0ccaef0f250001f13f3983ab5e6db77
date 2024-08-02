@@ -1,0 +1,22 @@
+package br.com.projeto.controller;
+
+import java.util.List;
+
+@RestController
+public class UsuarioController {
+	
+	@Autowired
+	UsuarioRepository ur;
+	
+	@PostMapping("/cadastrar")
+	public String cadastrar(@RequestBody Usuario us) {
+		ur.save(us);
+		return "Usuário Cadastrado";
+	}
+	
+	@GetMapping("/listar")
+	public List<Usuario> listar () {
+		return ur.findAll();
+	}
+
+}
