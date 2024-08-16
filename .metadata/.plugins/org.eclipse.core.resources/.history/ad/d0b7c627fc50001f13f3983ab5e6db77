@@ -1,5 +1,0 @@
-package br.com.projeto.repository;
-
-public interface DadosPessoaisRepository {
-
-}
